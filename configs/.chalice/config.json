@@ -1,0 +1,24 @@
+{
+  "version": "2.0",
+  "app_name": "configs",
+  "stages": {
+    "dev": {
+      "environment_variables": {
+        "OWNER": "dev-team"
+      },
+      "api_gateway_stage": "api",
+      "lambda_functions": {
+        "foo": {
+          "environment_variables": {
+            "LOG": "INFO"
+          }
+        },
+        "bar": {
+          "environment_variables": {
+            "TABLE_NAME": "mytable"
+          }
+        }
+      }
+    }
+  }
+}
