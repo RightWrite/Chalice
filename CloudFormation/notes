@@ -1,0 +1,75 @@
+
+(.env) D:\Vishesh\Learning\AWS\Chalice>chalice new-project CloudFormation
+
+(.env) D:\Vishesh\Learning\AWS\Chalice>cd CloudFormation
+
+(.env) D:\Vishesh\Learning\AWS\Chalice\CloudFormation>chalice package infra
+Creating deployment package.
+
+(.env) D:\Vishesh\Learning\AWS\Chalice\CloudFormation>cd infra
+
+
+(.env) D:\Vishesh\Learning\AWS\Chalice\CloudFormation\infra>aws cloudformation package --template-file sam.json --s3-bucket com-cloudguru-vishesh --outp
+ut-template-file packaged.yaml
+Uploading to 0bd5dc707f792dddf76615feaf74599d  14457 / 14457.0  (100.00%)
+Successfully packaged artifacts and wrote output template to file packaged.yaml.
+Execute the following command to deploy the packaged template
+aws cloudformation deploy --template-file D:\Vishesh\Learning\AWS\Chalice\CloudFormation\infra\packaged.yaml --stack-name <YOUR STACK NAME>
+
+(.env) D:\Vishesh\Learning\AWS\Chalice\CloudFormation\infra>aws cloudformation deploy --template-file  packaged.yaml --stackname test-cfn-deploy --capab
+ilities CAPABILITY_IAM
+usage: aws [options] <command> <subcommand> [<subcommand> ...] [parameters]
+To see help text, you can run:
+
+  aws help
+  aws <command> help
+  aws <command> <subcommand> help
+aws: error: argument subcommand: Invalid choice, valid choices are:
+
+push                                     | register
+deregister                               | install
+uninstall
+
+(.env) D:\Vishesh\Learning\AWS\Chalice\CloudFormation\infra>aws cloudformation deploy --template-file  packaged.yaml --stackname test-cfn-deploy --capab
+ilities CAPABILITY_IAM
+usage: aws [options] <command> <subcommand> [<subcommand> ...] [parameters]
+To see help text, you can run:
+
+  aws help
+  aws <command> help
+  aws <command> <subcommand> help
+aws: error: argument subcommand: Invalid choice, valid choices are:
+
+push                                     | register
+deregister                               | install
+uninstall
+
+(.env) D:\Vishesh\Learning\AWS\Chalice\CloudFormation\infra>aws cloudformation deploy --template-file packaged.yaml --stack-name test-cfn-stack  --capab
+ilities CAPABILITY_IAM
+
+Waiting for changeset to be created..
+Waiting for stack create/update to complete
+Successfully created/updated stack - test-cfn-stack
+
+(.env) D:\Vishesh\Learning\AWS\Chalice\CloudFormation\infra>cd ..
+
+(.env) D:\Vishesh\Learning\AWS\Chalice\CloudFormation>chalice package --merge-template infra\extra.json out
+Creating deployment package.
+Reusing existing deployment package.
+
+(.env) D:\Vishesh\Learning\AWS\Chalice\CloudFormation>aws cloudformation package --template-file out\sam.json --s3-bucket com-cloudguru-vishesh --output
+-template-file out\packaged.yaml
+
+Successfully packaged artifacts and wrote output template to file out\packaged.yaml.
+Execute the following command to deploy the packaged template
+aws cloudformation deploy --template-file D:\Vishesh\Learning\AWS\Chalice\CloudFormation\out\packaged.yaml --stack-name <YOUR STACK NAME>
+
+
+
+(.env) D:\Vishesh\Learning\AWS\Chalice\CloudFormation>aws cloudformation deploy --template-file D:\Vishesh\Learning\AWS\Chalice\CloudFormation\out\packa
+ged.yaml --stack-name chalice-and-cloudformation --capabilities CAPABILITY_IAM
+
+Waiting for changeset to be created..
+Waiting for stack create/update to complete
+Successfully created/updated stack - chalice-and-cloudformation
+
