@@ -1,0 +1,43 @@
+{
+  "resources": [
+    {
+      "name": "default-role",
+      "resource_type": "iam_role",
+      "role_arn": "arn:aws:iam::221106077153:role/lambdaEventSource-dev",
+      "role_name": "lambdaEventSource-dev"
+    },
+    {
+      "name": "every_five_min",
+      "resource_type": "lambda_function",
+      "lambda_arn": "arn:aws:lambda:ap-south-1:221106077153:function:lambdaEventSource-dev-every_five_min"
+    },
+    {
+      "name": "every_five_min-event",
+      "resource_type": "cloudwatch_event",
+      "rule_name": "lambdaEventSource-dev-every_five_min-event"
+    },
+    {
+      "name": "on_code_commit_changes",
+      "resource_type": "lambda_function",
+      "lambda_arn": "arn:aws:lambda:ap-south-1:221106077153:function:lambdaEventSource-dev-on_code_commit_changes"
+    },
+    {
+      "name": "on_code_commit_changes-event",
+      "resource_type": "cloudwatch_event",
+      "rule_name": "lambdaEventSource-dev-on_code_commit_changes-event"
+    },
+    {
+      "name": "handle_s3_event",
+      "resource_type": "lambda_function",
+      "lambda_arn": "arn:aws:lambda:ap-south-1:221106077153:function:lambdaEventSource-dev-handle_s3_event"
+    },
+    {
+      "name": "handle_s3_event-s3event",
+      "resource_type": "s3_event",
+      "bucket": "my-mumbai-bucket123",
+      "lambda_arn": "arn:aws:lambda:ap-south-1:221106077153:function:lambdaEventSource-dev-handle_s3_event"
+    }
+  ],
+  "schema_version": "2.0",
+  "backend": "api"
+}
